@@ -7,11 +7,23 @@
  */
 
 // ↓ uncomment bellow lines and add your response!
-/*
-export default function ({ students }: { students: Student[] }): Student[] {
-    return [];
+
+function compareStudent(a: Student, b: Student) {
+    //console.log(a.age);
+    if (a.age < b.age) {
+        return -1
+    } else if (a.age > b.age ) {
+        return 1;
+    }else if (a.age === b.age) {
+        return a.name.localeCompare(b.name)
+    }
+    return 0
 }
-*/
+
+export default function ({ students }: { students: Student[] }): Student[] {
+    return students.sort(compareStudent);
+}
+
 
 // used interfaces, do not touch
 export interface Student {
